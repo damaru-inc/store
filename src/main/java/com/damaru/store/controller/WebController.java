@@ -59,10 +59,6 @@ public class WebController {
     private List<Item> fetchThem() throws Exception {
     	List<Item> ret = null;
     	ret = (List<Item>) itemRepository.findAll();
-    	
-    	if (ret.size() == 2) {
-    		//throw new Exception("This is bad, there were 2 items!");
-    	}
     	return ret;
     }
 
