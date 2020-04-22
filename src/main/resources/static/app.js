@@ -14,7 +14,7 @@ class ItemListComponent extends React.Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:8080/items")
+        fetch("items")
             .then(res => res.json())
             .then(
                 (result) => {
