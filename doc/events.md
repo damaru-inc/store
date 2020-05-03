@@ -59,9 +59,12 @@ The topic structure will follow an abbreviated version of the Solace best practi
 
 The event topic root shall have these components:
 
-Domain/ObjectType/Verb
+Domain/ObjectType/Verb/OriginatorID
 
 - Domain is 'estore'
 - ObjectType is one of command, data or notification
 - Verb is one of query, queryResponse - we shall add more as required.
+- OriginatorID is the ID of the system that generated the message. It allows
+web clients to filter so that they only receive request/reply messages intended for them.
+
 
