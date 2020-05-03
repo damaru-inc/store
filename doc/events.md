@@ -52,3 +52,16 @@ they can be better represented in strongly typed languages such as Java.
   ]
 }
 ```
+
+## Topics
+
+The topic structure will follow an abbreviated version of the Solace best practices.
+
+The event topic root shall have these components:
+
+Domain/ObjectType/Verb
+
+- Domain is 'estore'
+- ObjectType is one of command, data or notification
+- Verb is one of query, queryResponse - we shall add more as required.
+
