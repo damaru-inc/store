@@ -2,7 +2,6 @@
 
 const e = React.createElement;
 
-
 class ItemListComponent extends React.Component {
     constructor(props) {
         super(props);
