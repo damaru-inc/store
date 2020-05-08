@@ -45,6 +45,7 @@ public class WebController {
     @GetMapping("items")
     public List<Item> getItems() {
     	List<Item> ret = null;
+
     	log.info("Getting items....");
     
     	try {

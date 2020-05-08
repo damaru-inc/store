@@ -29,7 +29,7 @@ i.e item, catagory, account. It may contain a filter field. Example:
 "eventType" : "query",
 "entityType" : "item",
 "filter" : {
-  "id" :  "333"}
+  "id" :  333}
 }
 ```
 ### QueryResponse
@@ -45,7 +45,7 @@ they can be better represented in strongly typed languages such as Java.
 "entityType" : "item",
 "items" : [
     { 
-      "id" :  "333",
+      "id" :  333,
       "description": "Verona Coffee",
       "price":  18.99 
     }
