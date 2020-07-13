@@ -5,6 +5,18 @@ const sleep = (milliseconds) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
 }
 
+function CategoryForm() {
+    return (
+        <form>
+            <fieldset>
+                <legend>New Category</legend>
+                <input placeholder="description"/>
+                <button>Add Category</button>
+            </fieldset>
+        </form>
+    );
+}
+
 class ItemComponent extends React.Component {
     render() {
         return (
@@ -40,17 +52,15 @@ class ItemListComponent extends React.Component {
     getItems(resolve, reject) {
 
         let callback = function(message) {
-            console.log("Got the message " + message.getBinaryAttachment());
-            var json = message.getBinaryAttachment();
-            var obj = JSON.parse(json);
+            var obj = JSON.parse(message);
             var arr = obj.itemView;
             // faking it:
-            let ret = [];
-            let item = {id: 333, description: "Coffee", price: 18.99, category: "coffee"};
+            //let ret = [];
+            //let item = {id: 333, description: "Coffee", price: 18.99, category: "coffee"};
             //console.log("isLoaded: " + this.state.hi);
-            ret.push(item);
+            //ret.push(item);
             // end if faking it. Return arr.
-            resolve(ret);
+            resolve(arr);
         }
         console.log(`about to send ${messaging.publisherUp}`);
         messaging.sendQuery(callback);
@@ -95,6 +105,7 @@ class ItemListComponent extends React.Component {
             return <div>Loading...</div>;
         } else {
             return (
+                <div>
                 <ul>
                     {items.map(item => (
                         <li key={item.id}>
@@ -102,6 +113,8 @@ class ItemListComponent extends React.Component {
                         </li>
                     ))}
                 </ul>
+                <CategoryForm/>
+                </div>
             );
         }
     }

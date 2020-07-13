@@ -79,7 +79,7 @@ public class MessagingController {
         ItemViewArray.ItemView[] itemsArray = new ItemViewArray.ItemView[items.size()];
         List<ItemViewArray.ItemView> itemViews = items.stream()
                 .map(item -> new ItemViewArray.ItemView(0.0, item.getDescription(), item.getId().intValue(),
-                        item.getCategory().toString()))
+                        item.getCategory().getDescription()))
                 .collect(Collectors.toList());
         itemViews.toArray(itemsArray);
         ItemViewArray ret = new ItemViewArray(itemsArray);

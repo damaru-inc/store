@@ -1,6 +1,7 @@
 class Messaging {
 
     constructor() {
+        this.textDecoder = new TextDecoder("utf-8");
         this.callback = null;
         solace.SolclientFactory.setLogLevel(solace.LogLevel.DEBUG);
         var factoryProps = new solace.SolclientFactoryProperties();
@@ -108,10 +109,13 @@ class Messaging {
         });
 
         this.subscriber.session.on(solace.SessionEventCode.MESSAGE, function (message) {
+            //var payload = self.textDecoder.decode(message.getBinaryAttachment());
+            var payload = message.getBinaryAttachment();
             if (self.callback) {
-                self.callback(message);
+                self.callback(payload);
             }
-            console.log('Received message: "' + message.getBinaryAttachment() + '", details:\n' + message.dump());
+            console.log('Received message: "' + payload + "'");
+            console.debug(message.dump());
         });
 
         try {
