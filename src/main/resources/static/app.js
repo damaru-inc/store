@@ -5,7 +5,12 @@ const sleep = (milliseconds) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
 }
 
-const e = React.createElement;
+class ItemComponent extends React.Component {
+    render() {
+        return (
+           <span> {this.props.item.id} {this.props.item.description} category: {this.props.item.category} </span>);
+    }
+}
 
 class ItemListComponent extends React.Component {
     constructor(props) {
@@ -93,7 +98,7 @@ class ItemListComponent extends React.Component {
                 <ul>
                     {items.map(item => (
                         <li key={item.id}>
-                            {item.id} {item.description} category: {item.category.description}
+                            <ItemComponent item={item} />
                         </li>
                     ))}
                 </ul>
@@ -102,4 +107,4 @@ class ItemListComponent extends React.Component {
     }
 }
 
-ReactDOM.render(e(ItemListComponent), document.getElementById('root'));
+ReactDOM.render(<ItemListComponent/>, document.getElementById('root'));

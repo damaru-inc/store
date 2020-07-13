@@ -20,6 +20,8 @@ class Messaging {
         this.message.setDeliveryMode(solace.MessageDeliveryModeType.DIRECT);
         this.message.setBinaryAttachment(this.itemQueryPayload);
 
+        console.log('---------- VERSION: ' + solace.Version);
+
         this.publisher = {};
         this.subscriber = {};
 
